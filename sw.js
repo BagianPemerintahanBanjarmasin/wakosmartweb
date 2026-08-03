@@ -1,13 +1,12 @@
-// === sw.js (Service Worker untuk Wako SmartWeb) ===
-const CACHE_NAME = 'wako-smartweb-v1';
+// === sw.js ===
+const CACHE_NAME = 'wako-smartweb-v5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './manifest.json'
-  './favicon.png'
+  './manifest.json', // <-- Sesuaikan tanpa 'a'
+  './favicon.png'    // <-- Menggunakan nama file logomu yang ada di GitHub
 ];
 
-// Install SW dan Cache Assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -16,7 +15,6 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Activate SW dan Hapus Cache Lama
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -31,12 +29,9 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Strategi Fetch: Cache First, then Network
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
-      .then((response) => {
-        return response || fetch(event.request);
-      })
+      .then((response) => response || fetch(event.request))
   );
 });
