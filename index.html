@@ -10,13 +10,12 @@
     <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" href="./favicon.png">
     
-    <!-- Meta untuk PWA -->
+    <!-- Meta PWA -->
     <meta name="theme-color" content="#0284c7">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
-        /* === CSS UTAMA === */
         :root {
             --wako-primary: #0284c7; 
             --wako-primary-dark: #075985;
@@ -38,7 +37,6 @@
             overflow-x: hidden;
         }
 
-        /* --- Header Section --- */
         .wako-main-header {
             background: linear-gradient(135deg, var(--wako-primary-dark) 0%, var(--wako-primary) 100%);
             color: #ffffff;
@@ -66,51 +64,31 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .wako-logo {
-            width: 100%; height: auto; display: block;
-        }
+        .wako-logo { width: 100%; height: auto; display: block; }
 
         .header-text-block h1 {
-            font-size: 2.2rem;
-            font-weight: 850;
-            margin: 0 0 0.5rem 0;
-            letter-spacing: -1.5px;
-            color: #ffffff;
+            font-size: 2.2rem; font-weight: 850; margin: 0 0 0.5rem 0;
+            letter-spacing: -1.5px; color: #ffffff;
         }
 
-        .header-text-block p {
-            font-size: 1rem;
-            margin: 0;
-            opacity: 0.9;
-            color: #ffffff;
-        }
+        .header-text-block p { font-size: 1rem; margin: 0; opacity: 0.9; color: #ffffff; }
 
-        /* --- Main Content & Overlap --- */
         .wako-main-content {
-            max-width: 750px;
-            width: 100%;
+            max-width: 750px; width: 100%;
             margin: -4rem auto 2.5rem auto;
-            padding: 0 15px;
-            box-sizing: border-box;
+            padding: 0 15px; box-sizing: border-box;
         }
 
         .wako-card {
             background: var(--wako-card-bg);
-            padding: 2.5rem;
-            border-radius: 1.25rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid #f3f4f6;
+            padding: 2.5rem; border-radius: 1.25rem;
+            box-shadow: var(--shadow-lg); border: 1px solid #f3f4f6;
         }
 
-        /* PWA Badge */
         .pwa-badge {
-            margin-bottom: 2rem;
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            padding: 10px 18px;
-            border-radius: 99px;
-            display: inline-flex; align-items: center; gap: 12px;
-            font-size: 13px; color: #166534; font-weight: 600;
+            margin-bottom: 2rem; background: #f0fdf4; border: 1px solid #bbf7d0;
+            padding: 10px 18px; border-radius: 99px; display: inline-flex;
+            align-items: center; gap: 12px; font-size: 13px; color: #166534; font-weight: 600;
         }
 
         .pwa-badge button {
@@ -119,24 +97,19 @@
             font-size: 12px; font-weight: 700;
         }
 
-        /* --- Form Styles --- */
         .wako-group { margin-bottom: 22px; }
 
         .wako-group label {
             display: flex; align-items: center; gap: 8px;
-            font-weight: 700; margin-bottom: 10px;
-            font-size: 14px; color: var(--text-main);
+            font-weight: 700; margin-bottom: 10px; font-size: 14px; color: var(--text-main);
         }
 
         .icon { width: 18px; height: 18px; color: var(--wako-primary); }
 
         .wako-group input, .wako-group textarea {
-            width: 100%; padding: 14px;
-            border: 1.5px solid #d1d5db;
-            border-radius: 10px; font-size: 15px;
-            background: #fbfbfb; color: var(--text-main);
-            box-sizing: border-box;
-            transition: all 0.2s ease;
+            width: 100%; padding: 14px; border: 1.5px solid #d1d5db;
+            border-radius: 10px; font-size: 15px; background: #fbfbfb;
+            color: var(--text-main); box-sizing: border-box; transition: all 0.2s ease;
         }
 
         .wako-group input:focus, .wako-group textarea:focus {
@@ -144,20 +117,15 @@
             background: #ffffff; box-shadow: 0 0 0 5px var(--focus-ring);
         }
 
-        .wako-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-        }
-
+        .wako-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .wako-group textarea { resize: vertical; min-height: 120px; }
 
-        /* --- Submit Button & Loading --- */
         .wako-group button[type="submit"] {
-            width: 100%; padding: 16px;
-            background: var(--wako-primary);
-            color: #ffffff; border: none;
-            border-radius: 10px; font-size: 16px; font-weight: 800;
-            cursor: pointer; display: flex; justify-content: center;
-            align-items: center; gap: 12px; transition: background 0.2s;
+            width: 100%; padding: 16px; background: var(--wako-primary);
+            color: #ffffff; border: none; border-radius: 10px;
+            font-size: 16px; font-weight: 800; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            gap: 12px; transition: background 0.2s;
         }
 
         .wako-group button[type="submit"]:hover { background: var(--wako-primary-dark); }
@@ -165,27 +133,21 @@
 
         .spinner {
             display: none; width: 20px; height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%; border-top-color: #ffffff;
-            animation: spin 0.8s linear infinite;
+            border: 3px solid rgba(255,255,255,0.3); border-radius: 50%;
+            border-top-color: #ffffff; animation: spin 0.8s linear infinite;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* --- Status Message --- */
         .wako-msg {
-            margin-top: 2rem; padding: 1rem 1.25rem;
-            border-radius: 10px; text-align: center;
-            font-size: 15px; font-weight: 600; display: none;
+            margin-top: 2rem; padding: 1rem 1.25rem; border-radius: 10px;
+            text-align: center; font-size: 15px; font-weight: 600; display: none;
         }
         .wako-success { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
         .wako-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
 
-        .wako-footer {
-            text-align: center; padding: 1.5rem; font-size: 13px; color: var(--text-muted);
-        }
+        .wako-footer { text-align: center; padding: 1.5rem; font-size: 13px; color: var(--text-muted); }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .header-text-block h1 { font-size: 1.8rem; }
             .wako-card { padding: 1.5rem; }
@@ -196,11 +158,10 @@
 <body>
 
     <div class="wako-container-outer">
-        <!-- Header -->
         <header class="wako-main-header">
             <div class="wako-main-header-content">
                 <div class="logo-container">
-                    <img src="./favicon.png" alt="Logo Wako SmartWeb" id="wakoLogoImg" class="wako-logo">
+                    <img src="./favicon.png" alt="Logo Wako SmartWeb" class="wako-logo">
                 </div>
                 <div class="header-text-block">
                     <h1>WAKO SMARTWEB</h1>
@@ -209,16 +170,13 @@
             </div>
         </header>
 
-        <!-- Main Content -->
         <main class="wako-main-content">
             <div class="wako-card">
-                <!-- PWA Install Badge -->
                 <div class="pwa-badge" id="pwaBadge" style="display: none;">
                     <span>📱 Aplikasi Siap Diinstal</span>
                     <button id="pwaInstallBtn" type="button">Install</button>
                 </div>
                 
-                <!-- Form -->
                 <form id="wakoForm" autocomplete="off">
                   <div class="wako-group">
                     <label for="nama">
@@ -287,10 +245,8 @@
     </div>
 
     <script>
-        // URL Google Apps Script Anda
         const SMARTWEB_GAS_URL = "https://script.google.com/macros/s/AKfycbw7DVEau9pR-8B4lHVApuhmbgW4Mr_YzGFkdgCQUDi1PgAZaGmi3rfRqqJ8bbx07nxO/exec";
 
-        // --- Logic Submit Form ---
         document.getElementById('wakoForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('wakoBtn');
@@ -299,9 +255,16 @@
             const msg = document.getElementById('wakoStatus');
             
             btn.disabled = true;
-            btnText.innerText = "Mengirim...";
+            btnText.innerText = "Menghubungkan ke Server...";
             spinner.style.display = "block";
             msg.style.display = "none";
+
+            // Teks progresif interaktif
+            const loadingProgress = setTimeout(() => {
+                if (btn.disabled) {
+                    btnText.innerText = "Menyimpan ke Google Sheets...";
+                }
+            }, 3000);
 
             const formData = {
                 nama: document.getElementById('nama').value,
@@ -312,28 +275,29 @@
                 link_gdrive: document.getElementById('link_gdrive').value
             };
 
-            // JSONP Handling
             const callbackName = 'wakoGASCallback_' + Math.round(100000 * Math.random());
-            
             const script = document.createElement('script');
             script.src = SMARTWEB_GAS_URL + "?callback=" + callbackName + "&data=" + encodeURIComponent(JSON.stringify(formData));
 
-            // Timeout jika koneksi HP terlalu lambat (15 detik)
+            // Timeout 30 detik
             const timeout = setTimeout(() => {
                 if (window[callbackName]) {
+                    clearTimeout(loadingProgress);
                     delete window[callbackName];
                     if (script.parentNode) document.body.removeChild(script);
                     btn.disabled = false;
                     btnText.innerText = "Kirim Berkas Pengajuan";
                     spinner.style.display = "none";
-                    showError("Koneksi lambat/terputus. Silakan coba lagi.");
+                    showError("Respon server lambat. Silakan coba klik Kirim sekali lagi.");
                 }
-            }, 15000);
+            }, 30000);
 
             window[callbackName] = function(data) {
                 clearTimeout(timeout);
+                clearTimeout(loadingProgress);
                 delete window[callbackName];
                 if (script.parentNode) document.body.removeChild(script);
+                
                 btn.disabled = false;
                 btnText.innerText = "Kirim Berkas Pengajuan";
                 spinner.style.display = "none";
@@ -358,7 +322,7 @@
             msg.style.display = "block";
         }
 
-        // --- Register Service Worker ---
+        // Register Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
@@ -367,7 +331,7 @@
             });
         }
 
-        // --- Logic Tombol Install PWA ---
+        // Logic Install PWA
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
