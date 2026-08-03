@@ -1,0 +1,421 @@
+<!-- === WAKO SMARTWEB PORTAL (OPTIMIZED FOR BLOGSPOT) === -->
+<div class="wako-container-outer">
+    
+    <!-- Bagian Header / Hero yang Melekat di Page Blogger -->
+    <header class="wako-main-header">
+        <div class="wako-main-header-content">
+            <div class="logo-container">
+                <img 
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9SUhJlQQxIKOKDgxq7HMq2_tIWllUd-xNWWD7Ma4fTdpVT6xoYctsWCA6eJp1FZOTfRQZy-wV9_ElbodWKoHxv9cV0poHDSkkG324Zzw_BidUcfmX8-KnTvIIMPgsA_g4UvIlrCd8Sm6WGlnChpRUr4bbJDQfHc5mLo5jKU5GMSyXQ3qyDr_9JtYprW_N/w400-h400/Logo_WAKO_SMARTWEB.png" 
+                    alt="Logo Wako Smart Web" 
+                    class="wako-logo"
+                    id="wakoLogoImg"
+                />
+            </div>
+            <div class="header-text-block">
+                <h1>WAKO SMARTWEB</h1>
+                <p>Sistem Pengajuan Surat Rekomendasi Walikota Banjarmasin</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Utama Aplikasi (Mengambang/Overlapping) -->
+    <main class="wako-main-content">
+        <div class="wako-card">
+
+            <!-- PWA Install Badge -->
+            <div class="pwa-badge" id="pwaBadge" style="display: none;">
+                <span>📱 Aplikasi Resmi Siap Diinstal</span>
+                <button id="pwaInstallBtn" type="button">Install</button>
+            </div>
+            
+            <!-- Form Pengajuan -->
+            <form id="wakoForm" autocomplete="off">
+              
+              <!-- Input: Nama Lengkap -->
+              <div class="wako-group">
+                <label for="nama">
+                  <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  Nama Lengkap Pemohon
+                </label>
+                <input id="nama" required type="text" placeholder="Masukkan nama lengkap sesuai KTP" />
+              </div>
+
+              <!-- Grid: NIK & No HP -->
+              <div class="wako-grid">
+                <div class="wako-group">
+                  <label for="nik">
+                    <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.66 0 3 1.34 3 3s-1.34 3-3 3s-3-1.34-3-3s1.34-3 3-3zm6 12H6v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1z"/></svg>
+                    NIK (16 Digit)
+                  </label>
+                  <input id="nik" pattern="[0-9]{16}" maxlength="16" required title="NIK harus terdiri dari 16 digit angka" type="text" placeholder="6371xxxxxxxxxxxx" />
+                </div>
+
+                <div class="wako-group">
+                  <label for="no_hp">
+                    <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Nomor WhatsApp / HP
+                  </label>
+                  <input id="no_hp" required type="tel" placeholder="08xxxxxxxxxx" />
+                </div>
+              </div>
+
+              <!-- Input: Email -->
+              <div class="wako-group">
+                <label for="email">
+                  <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
+                  Alamat Email Aktif
+                </label>
+                <input id="email" required type="email" placeholder="contoh@email.com" />
+              </div>
+
+              <!-- Input: Perihal -->
+              <div class="wako-group">
+                <label for="perihal">
+                  <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                  Maksud & Perihal Pengajuan
+                </label>
+                <textarea id="perihal" required placeholder="Jelaskan secara singkat maksud dan tujuan pengajuan rekomendasi..."></textarea>
+              </div>
+
+              <!-- Input: Link Drive -->
+              <div class="wako-group">
+                <label for="link_gdrive">
+                  <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4C9.11 4 6.6 5.64 5.35 8.04C2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5c0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4c0-2.05 1.53-3.76 3.56-3.97l1.07-.11l.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5l1.53.11c1.56.1 2.78 1.41 2.78 2.96c0 1.65-1.35 3-3 3z"/></svg>
+                  Link Google Drive Dokumen Pendukung
+                </label>
+                <input id="link_gdrive" placeholder="https://drive.google.com/file/d/.../view?usp=sharing" required type="url" />
+                <small class="wako-hint">*Wajib diatur ke "Siapa saja yang memiliki link".</small>
+              </div>
+
+              <!-- Tombol Submit -->
+              <div class="wako-group">
+                <button id="wakoBtn" type="submit">
+                  <span class="btn-text">Kirim Berkas Pengajuan</span>
+                  <div class="spinner"></div>
+                </button>
+              </div>
+
+            </form>
+
+            <!-- Notifikasi Status -->
+            <div class="wako-msg" id="wakoStatus"></div>
+
+        </div>
+    </main>
+
+    <footer class="wako-footer">
+        Hak Cipta © 2024 Pemerintah Kota Banjarmasin. Diintegrasikan via Blogger.
+    </footer>
+
+    <style>
+        /* CSS Reset khusus agar tidak bentrok dengan tema Blogger */
+        .wako-container-outer {
+            all: initial; /* Reset properti eksternal */
+            display: block;
+            background-color: #f0f9ff;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .wako-container-outer *, .wako-container-outer *:before, .wako-container-outer *:after {
+            box-sizing: border-box;
+        }
+
+        /* Variabel Warna - Pilihan B */
+        :root {
+            --wako-primary: #0284c7; 
+            --wako-primary-dark: #075985;
+            --wako-card-bg: #ffffff;
+            --text-main: #1c1917;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --focus-ring: rgba(2, 132, 199, 0.25);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+
+        /* --- Header Section (Blogger Ready) --- */
+        .wako-main-header {
+            background: linear-gradient(135deg, var(--wako-primary-dark) 0%, var(--wako-primary) 100%);
+            color: #ffffff;
+            padding: 3rem 1rem 5rem 1rem;
+            text-align: center;
+        }
+
+        .wako-main-header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 8px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .wako-logo {
+            width: 100%; height: auto; display: block;
+        }
+
+        .header-text-block h1 {
+            font-size: 2.2rem;
+            font-weight: 850;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -1.5px;
+            color: #ffffff !important; /* Force color */
+        }
+
+        .header-text-block p {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.9;
+            color: #ffffff !important;
+        }
+
+        /* --- Main Content & Overlap --- */
+        .wako-main-content {
+            max-width: 750px;
+            width: 100%;
+            margin: -4rem auto 2.5rem auto; /* Overlap effect */
+            padding: 0 15px;
+        }
+
+        .wako-card {
+            background: var(--wako-card-bg);
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #f3f4f6;
+        }
+
+        /* PWA Badge */
+        .pwa-badge {
+            margin-bottom: 2rem;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 10px 18px;
+            border-radius: 99px;
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 13px; color: #166534; font-weight: 600;
+        }
+
+        .pwa-badge button {
+            background: #166534; color: white; border: none;
+            padding: 6px 14px; border-radius: 99px; cursor: pointer;
+            font-size: 12px; font-weight: 700;
+        }
+
+        /* --- Form Styles --- */
+        .wako-group { margin-bottom: 22px; }
+
+        .wako-group label {
+            display: flex; align-items: center; gap: 8px;
+            font-weight: 700; margin-bottom: 10px;
+            font-size: 14px; color: var(--text-main);
+        }
+
+        .icon { width: 18px; height: 18px; color: var(--wako-primary); }
+
+        .wako-group input, .wako-group textarea {
+            width: 100%; padding: 14px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 10px; font-size: 15px;
+            background: #fbfbfb; color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .wako-group input:focus, .wako-group textarea:focus {
+            outline: none; border-color: var(--wako-primary);
+            background: #ffffff; box-shadow: 0 0 0 5px var(--focus-ring);
+        }
+
+        .wako-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+
+        .wako-group textarea { resize: vertical; min-height: 120px; }
+
+        .wako-hint {
+            color: var(--text-muted); display: block;
+            font-size: 12px; margin-top: 8px; line-height: 1.5;
+        }
+
+        /* --- Submit Button & Loading --- */
+        .wako-group button[type="submit"] {
+            width: 100%; padding: 16px;
+            background: var(--wako-primary);
+            color: #ffffff !important; border: none;
+            border-radius: 10px; font-size: 16px; font-weight: 800;
+            cursor: pointer; display: flex; justify-content: center;
+            align-items: center; gap: 12px; transition: background 0.2s;
+        }
+
+        .wako-group button[type="submit"]:hover { background: var(--wako-primary-dark); }
+        .wako-group button[type="submit"]:disabled { background: #d1d5db; cursor: not-allowed; }
+
+        .spinner {
+            display: none; width: 20px; height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%; border-top-color: #ffffff;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- Status --- */
+        .wako-msg {
+            margin-top: 2rem; padding: 1rem 1.25rem;
+            border-radius: 10px; text-align: center;
+            font-size: 15px; font-weight: 600; display: none;
+        }
+        .wako-success { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .wako-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+        .wako-footer {
+            text-align: center; padding: 1.5rem; font-size: 13px; color: var(--text-muted);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .wako-card { padding: 1.5rem; }
+            .wako-grid { grid-template-columns: 1fr; gap: 0; }
+        }
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+    // URL Google Apps Script Anda (Ganti jika berbeda)
+    const SMARTWEB_GAS_URL = "https://script.google.com/macros/s/AKfycbw7DVEau9pR-8B4lHVApuhmbgW4Mr_YzGFkdgCQUDi1PgAZaGmi3rfRqqJ8bbx07nxO/exec";
+
+    // --- Submit Logic (Aman via JSONP di Blogger) ---
+    document.getElementById('wakoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('wakoBtn');
+        const btnText = btn.querySelector('.btn-text');
+        const spinner = btn.querySelector('.spinner');
+        const msg = document.getElementById('wakoStatus');
+        
+        btn.disabled = true;
+        btnText.innerText = "Mengirim...";
+        spinner.style.display = "block";
+        msg.style.display = "none";
+
+        // Collect data
+        const formData = {
+            nama: document.getElementById('nama').value,
+            nik: document.getElementById('nik').value,
+            no_hp: document.getElementById('no_hp').value,
+            email: document.getElementById('email').value,
+            perihal: document.getElementById('perihal').value,
+            link_gdrive: document.getElementById('link_gdrive').value
+        };
+
+        // Menggunakan JSONP untuk menghindari CORS di Blogger (POST mungkin ditolak)
+        const callbackName = 'wakoGASCallback_' + Math.round(100000 * Math.random());
+        window[callbackName] = function(data) {
+            delete window[callbackName];
+            document.body.removeChild(script);
+
+            btn.disabled = false;
+            btnText.innerText = "Kirim Berkas Pengajuan";
+            spinner.style.display = "none";
+
+            if (data.result === 'success') {
+                msg.innerHTML = "✓ <b>Berhasil!</b> Pengajuan surat rekomendasi telah diterima.";
+                msg.className = "wako-msg wako-success";
+                msg.style.display = "block";
+                document.getElementById('wakoForm').reset();
+            } else {
+                showError(data.error || 'Kesalahan sistem.');
+            }
+        };
+
+        // Buat Script element untuk JSONP
+        const script = document.createElement('script');
+        script.src = SMARTWEB_GAS_URL + "?callback=" + callbackName + "&data=" + encodeURIComponent(JSON.stringify(formData));
+        document.body.appendChild(script);
+
+        // Fallback jika GAS tidak mendukung JSONP (CORS biasa)
+        // fetch(target, { method: 'POST', body: ... })
+    });
+
+    function showError(errText) {
+        const msg = document.getElementById('wakoStatus');
+        msg.innerHTML = "✕ <b>Gagal!</b> " + errText;
+        msg.className = "wako-msg wako-error";
+        msg.style.display = "block";
+    }
+
+    // --- PWA Implementation khusus BLOGGER ---
+    // Di Blogger, kita tidak bisa host 'service-worker.js' secara bebas.
+    // Tapi kita tetap bisa menggunakan 'Manifest' agar aplikasi 'Installable'
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        const currentUrl = window.location.href;
+        const logoUrl = document.getElementById('wakoLogoImg').src;
+
+        // 1. Buat Web Manifest secara Dinamis via Data URI
+        const manifest = {
+          name: "Wako Smart Web Banjarmasin",
+          short_name: "WakoSmartWeb",
+          start_url: currentUrl,
+          display: "standalone",
+          background_color: "#ffffff",
+          theme_color: "#0284c7",
+          icons: [
+            { src: logoUrl, sizes: "192x192", type: "image/png" },
+            { src: logoUrl, sizes: "512x512", type: "image/png" }
+          ]
+        };
+        const blob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+        const manifestUrl = URL.createObjectURL(blob);
+        
+        // Link Manifest ke Page
+        const linkManifest = document.createElement('link');
+        linkManifest.rel = 'manifest'; linkManifest.href = manifestUrl;
+        document.head.appendChild(linkManifest);
+
+        // 2. Register Service Worker via Data URI (Optimasi Kritis untuk Blogger)
+        const swCode = `
+          const CACHE_NAME = 'wako-sw-blogger-v1';
+          self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(['${currentUrl}']))));
+          self.addEventListener('fetch', e => e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
+        `;
+        const swBlob = new Blob([swCode], {type: 'text/javascript'});
+        const swUrl = URL.createObjectURL(swBlob);
+        navigator.serviceWorker.register(swUrl).catch(err => console.log('SW Fail:', err));
+      });
+    }
+
+    // Prompt Install PWA
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault(); deferredPrompt = e;
+      const pwaBadge = document.getElementById('pwaBadge');
+      if(pwaBadge) pwaBadge.style.display = 'inline-flex';
+    });
+
+    document.getElementById('pwaInstallBtn')?.addEventListener('click', () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((c) => {
+          if (c.outcome === 'accepted') document.getElementById('pwaBadge').style.display = 'none';
+          deferredPrompt = null;
+        });
+      }
+    });
+    //]]>
+    </script>
+</div>
