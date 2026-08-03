@@ -3,7 +3,8 @@ const CACHE_NAME = 'wako-smartweb-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9SUhJlQQxIKOKDgxq7HMq2_tIWllUd-xNWWD7Ma4fTdpVT6xoYctsWCA6eJp1FZOTfRQZy-wV9_ElbodWKoHxv9cV0poHDSkkG324Zzw_BidUcfmX8-KnTvIIMPgsA_g4UvIlrCd8Sm6WGlnChpRUr4bbJDQfHc5mLo5jKU5GMSyXQ3qyDr_9JtYprW_N/w400-h400/Logo_WAKO_SMARTWEB.png'
+  './manifest.json'
+  './favicon.png
 ];
 
 // Install SW dan Cache Assets
