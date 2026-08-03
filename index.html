@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAKO SMARTWEB | Portal Pengajuan Walikota Banjarmasin</title>
+    
+    <!-- Favicon & PWA Icons -->
+    <link rel="shortcut icon" href="./favicon.png" type="image/png">
     <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" href="./favicon.png">
     
@@ -11,10 +14,9 @@
     <meta name="theme-color" content="#0284c7">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9SUhJlQQxIKOKDgxq7HMq2_tIWllUd-xNWWD7Ma4fTdpVT6xoYctsWCA6eJp1FZOTfRQZy-wV9_ElbodWKoHxv9cV0poHDSkkG324Zzw_BidUcfmX8-KnTvIIMPgsA_g4UvIlrCd8Sm6WGlnChpRUr4bbJDQfHc5mLo5jKU5GMSyXQ3qyDr_9JtYprW_N/w192-h192/Logo_WAKO_SMARTWEB.png">
 
     <style>
-        /* === CSS UTAMA (Sudah bersih dari Reset Blogger) === */
+        /* === CSS UTAMA === */
         :root {
             --wako-primary: #0284c7; 
             --wako-primary-dark: #075985;
@@ -87,7 +89,7 @@
         .wako-main-content {
             max-width: 750px;
             width: 100%;
-            margin: -4rem auto 2.5rem auto; /* Overlap effect */
+            margin: -4rem auto 2.5rem auto;
             padding: 0 15px;
             box-sizing: border-box;
         }
@@ -148,11 +150,6 @@
 
         .wako-group textarea { resize: vertical; min-height: 120px; }
 
-        .wako-hint {
-            color: var(--text-muted); display: block;
-            font-size: 12px; margin-top: 8px; line-height: 1.5;
-        }
-
         /* --- Submit Button & Loading --- */
         .wako-group button[type="submit"] {
             width: 100%; padding: 16px;
@@ -175,7 +172,7 @@
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* --- Status --- */
+        /* --- Status Message --- */
         .wako-msg {
             margin-top: 2rem; padding: 1rem 1.25rem;
             border-radius: 10px; text-align: center;
@@ -188,7 +185,7 @@
             text-align: center; padding: 1.5rem; font-size: 13px; color: var(--text-muted);
         }
 
-        /* Mobile */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .header-text-block h1 { font-size: 1.8rem; }
             .wako-card { padding: 1.5rem; }
@@ -217,7 +214,7 @@
             <div class="wako-card">
                 <!-- PWA Install Badge -->
                 <div class="pwa-badge" id="pwaBadge" style="display: none;">
-                    <span>📱 Aplikasi Siap Diinstal</span>
+                    <span>📱 Aplikasi Siap Diinstal cuyyy</span>
                     <button id="pwaInstallBtn" type="button">Install</button>
                 </div>
                 
@@ -274,7 +271,7 @@
 
                   <div class="wako-group">
                     <button id="wakoBtn" type="submit">
-                      <span class="btn-text">Kirim Berkas Pengajuan </span>
+                      <span class="btn-text">Kirim Berkas Pengajuan cuyyy</span>
                       <div class="spinner"></div>
                     </button>
                   </div>
@@ -285,12 +282,12 @@
         </main>
 
         <footer class="wako-footer">
-            Hak Cipta © 2024 Pemerintah Kota Banjarmasin. Hosted on GitHub.
+            Hak Cipta © 2026 Pemerintah Kota Banjarmasin. Hosted on GitHub.
         </footer>
     </div>
 
     <script>
-        // URL Google Apps Script Anda (SAMA SEPERTI SEBELUMNYA)
+        // URL Google Apps Script Anda
         const SMARTWEB_GAS_URL = "https://script.google.com/macros/s/AKfycbw7DVEau9pR-8B4lHVApuhmbgW4Mr_YzGFkdgCQUDi1PgAZaGmi3rfRqqJ8bbx07nxO/exec";
 
         // --- Logic Submit Form ---
@@ -315,13 +312,30 @@
                 link_gdrive: document.getElementById('link_gdrive').value
             };
 
-            // Gunakan JSONP karena GAS URL berbeda domain
+            // JSONP Handling
             const callbackName = 'wakoGASCallback_' + Math.round(100000 * Math.random());
+            
+            const script = document.createElement('script');
+            script.src = SMARTWEB_GAS_URL + "?callback=" + callbackName + "&data=" + encodeURIComponent(JSON.stringify(formData));
+
+            // Timeout jika koneksi HP terlalu lambat (15 detik)
+            const timeout = setTimeout(() => {
+                if (window[callbackName]) {
+                    delete window[callbackName];
+                    if (script.parentNode) document.body.removeChild(script);
+                    btn.disabled = false;
+                    btnText.innerText = "Kirim Berkas Pengajuan cuyyy";
+                    spinner.style.display = "none";
+                    showError("Koneksi lambat/terputus. Silakan coba lagi.");
+                }
+            }, 15000);
+
             window[callbackName] = function(data) {
+                clearTimeout(timeout);
                 delete window[callbackName];
-                document.body.removeChild(script);
+                if (script.parentNode) document.body.removeChild(script);
                 btn.disabled = false;
-                btnText.innerText = "Kirim Berkas Pengajuan";
+                btnText.innerText = "Kirim Berkas Pengajuan cuyyy";
                 spinner.style.display = "none";
 
                 if (data.result === 'success') {
@@ -334,8 +348,6 @@
                 }
             };
 
-            const script = document.createElement('script');
-            script.src = "https://script.google.com/macros/s/AKfycbw7DVEau9pR-8B4lHVApuhmbgW4Mr_YzGFkdgCQUDi1PgAZaGmi3rfRqqJ8bbx07nxO/exec?callback=" + callbackName + "&data=" + encodeURIComponent(JSON.stringify(formData));
             document.body.appendChild(script);
         });
 
@@ -346,20 +358,16 @@
             msg.style.display = "block";
         }
 
-        // === PWA Implementation (OPTIMAL UNTUK GITHUB PAGES) ===
-        // GitHub Pages mendukung hosting file JS terpisah, jadi kita buat nyata!
-
-        // Register Service Worker
+        // --- Register Service Worker ---
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // Asumsi nama file adalah sw.js di root repositori
                 navigator.serviceWorker.register('./sw.js')
                     .then(reg => console.log('SW Registered', reg))
                     .catch(err => console.log('SW Fail', err));
             });
         }
 
-        // Logic Tombol Install
+        // --- Logic Tombol Install PWA ---
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
@@ -372,7 +380,9 @@
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((c) => {
-                    if (c.outcome === 'accepted') document.getElementById('pwaBadge').style.display = 'none';
+                    if (c.outcome === 'accepted') {
+                        document.getElementById('pwaBadge').style.display = 'none';
+                    }
                     deferredPrompt = null;
                 });
             }
