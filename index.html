@@ -335,7 +335,7 @@
             };
 
             const script = document.createElement('script');
-            script.src = SMARTWEB_GAS_URL + "?callback=" + callbackName + "&data=" + encodeURIComponent(JSON.stringify(formData));
+            script.src = "https://script.google.com/macros/s/AKfycbw7DVEau9pR-8B4lHVApuhmbgW4Mr_YzGFkdgCQUDi1PgAZaGmi3rfRqqJ8bbx07nxO/exec?callback=" + callbackName + "&data=" + encodeURIComponent(JSON.stringify(formData));
             document.body.appendChild(script);
         });
 
